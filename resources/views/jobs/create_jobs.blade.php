@@ -1,7 +1,7 @@
 
 
         <h2 class="font-semibold text-xl bg-white py-6 px-16 text-gray-800 leading-tight">
-            {{ __('Create Company') }}
+            {{ __('Create job') }}
         </h2>
 
 
@@ -10,27 +10,45 @@
             <div class="flex-1 w-48">
                 <header>
                     <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Create Company') }}
+                        {{ __('Create job') }}
                     </h2>
 
                     <p class="mt-1 text-sm text-gray-600">
-                        {{ __("insert company details") }}
+                        {{ __("insert job details") }}
                     </p>
                 </header>
             </div>
             <div class="flex-1  bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
 
-                    <form method="post" action="{{ route('store-company') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
+                    <form method="post" action="{{ route('store-job',['company'=>$company]) }}"  class="mt-6 space-y-6">
                         @csrf
                         @method('POST')
 
                         <div>
-                            <x-input-label for="name" :value="__('Name')" />
-                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"  required autofocus autocomplete="name" />
-                            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+                            <x-input-label for="title" :value="__('Title')" />
+                            <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"  required autofocus autocomplete="title" />
+                            <x-input-error class="mt-2" :messages="$errors->get('title')" />
                         </div>
 
+                        <div>
+                            <x-input-label for="content" :value="__('content')" />
+                            <x-text-input id="content" name="content" type="text" class="mt-1 block w-full" required autocomplete="content" />
+                            <x-input-error class="mt-2" :messages="$errors->get('content')" />
+                        </div>
+                        <div>
+                            <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                            <select name="category" class="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                @foreach ($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <x-input-label for="salary" :value="__('salary')" />
+                            <x-text-input id="salary" name="salary" type="text" class="mt-1 block w-full" required autocomplete="salary" />
+                            <x-input-error class="mt-2" :messages="$errors->get('salary')" />
+                        </div>
                         <div>
                             <x-input-label for="phone" :value="__('phone')" />
                             <x-text-input id="phone" name="phone" type="text" class="mt-1 block w-full" required autocomplete="phone" />
@@ -52,18 +70,10 @@
                             <x-input-error class="mt-2" :messages="$errors->get('info')" />
                         </div>
                         <div>
-                            <x-input-label for="address" :value="__('address')" />
-                            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" required autocomplete="address" />
-                            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+                            <x-input-label for="end_at" :value="__('Deadline')" />
+                            <x-text-input datepicker id="end_at" name="end_at" type="date" class="mt-1 block w-full" required autocomplete="end_at" />
+                            <x-input-error class="mt-2" :messages="$errors->get('end_at')" />
                         </div>
-                        <div>
-
-                            <x-input-label for="address" :value="__('photo')" />
-                            <x-text-input   type="file" name="photo" class="mt-1 block w-full"   />
-
-                        </div>
-
-
 
                         <div class="flex items-center gap-4">
                             <x-primary-button>{{ __('Save') }}</x-primary-button>

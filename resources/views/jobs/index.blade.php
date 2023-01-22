@@ -5,7 +5,7 @@
     @endsection
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('ControllPanel') }}
+            {{ $company->name }}
         </h2>
     </x-slot>
 
@@ -14,23 +14,23 @@
 
             <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
                 <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-
                     <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">{{__('Campanies')}}</button>
+                        <button class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="jobs-tab" data-tabs-target="#jobs" type="button" role="tab" aria-controls="jobs" aria-selected="false">{{__('Jobs')}}</button>
                     </li>
                     <li class="mr-2" role="presentation">
-                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">{{__('Add-Campany')}}</button>
+                        <button class="inline-block p-4 border-b-2 rounded-t-lg" id="add-job-tab" data-tabs-target="#add-job" type="button" role="tab" aria-controls="add-job" aria-selected="false">{{__('Add-Job')}}</button>
                     </li>
                 </ul>
             </div>
             <div id="myTabContent">
 
-                <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-                    @include('company.show-companies')
+                <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="jobs" role="tabpanel" aria-labelledby="jobs-tab">
+                    @include('jobs.jobs',['jobs'=>$company->jobs])
+
 
                 </div>
-                <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        @include('company.create_company')
+                <div class="hidden p-4 rounded-lg  dark:bg-gray-800" id="add-job" role="tabpanel" aria-labelledby="add-job-tab">
+                        @include('jobs.create_jobs',['company'=>$company,'categories'=>$categories])
                 </div>
 
             </div>

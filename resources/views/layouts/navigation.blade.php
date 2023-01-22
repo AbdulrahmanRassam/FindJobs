@@ -17,8 +17,8 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('create-company')" :active="request()->routeIs('create-company')">
-                        {{__('Create Company')}}
+                    <x-nav-link :href="route('index-company')" :active="request()->routeIs('index-company')">
+                        {{__('Companies')}}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

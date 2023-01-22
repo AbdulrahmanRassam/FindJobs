@@ -23,4 +23,8 @@ class Company extends Model
         'status',
     ];
 
+    public function jobs()
+    {
+        return $this->hasMany(Job::class, 'company_id', 'id');
+    }
 }

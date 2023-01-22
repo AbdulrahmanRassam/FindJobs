@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Request;
 use App\Models\Job;
+use App\Models\Company;
+use App\Models\Category;
+use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
@@ -12,20 +14,23 @@ class JobController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Company $company)
     {
-        //
+        $categories=Category::all();
+        return view('jobs.index')->with('company',$company)->with('categories',$categories);
     }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+
+     public function create()
+     {
+         //
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +38,26 @@ class JobController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $company )
     {
-        //
+
+        // dd($company);
+        Job::create([
+            'company_id'=>$company,
+            'title'=>$request->title,
+            'content'=>$request->content,
+            'salary'=>$request->salary,
+            'category_id'=>$request->category,
+
+
+            'country'=>$request->country,
+
+            'city'=>$request->city,
+            'end_at'=>$request->end_at,
+
+        ]);
+
+         return redirect()->back()->with('status','Saved Successfully');
     }
 
     /**
