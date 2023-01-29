@@ -37,6 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/index-job/{company}', [JobController::class, 'index'])->name('index-job');
     Route::post('/store-job/{company}', [JobController::class, 'store'])->name('store-job');
+    Route::get('/show-job/{id}', [JobController::class, 'show'])->name('show-job');
+    Route::get('/user-job/{id}', [JobController::class, 'user_job'])->name('user-job');
+    Route::get('/cancel-user-job/{id}', [JobController::class, 'cancel_user_job'])->name('cancel-user-job');
 });
 
 require __DIR__.'/auth.php';

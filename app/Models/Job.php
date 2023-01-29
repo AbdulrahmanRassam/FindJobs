@@ -40,4 +40,8 @@ class Job extends Model
     {
         return $this->belongsTo(Company::class, 'company_id', 'id');
     }
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

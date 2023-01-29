@@ -1,7 +1,7 @@
 
 <div class=" overflow-x-auto pt-6 ">
 
-    <table class="w-full shadow-md rounded-lg  text-sm text-left px-2 text-gray-500 dark:text-gray-400">
+    <table class="w-full shadow-md rounded-lg  text-sm text-right px-2 text-gray-500 dark:text-gray-400">
         <thead class="  text-xs rounded-lg text-gray-200 uppercase bg-slate-50 py-6 dark:bg-gray-700 dark:text-gray-400">
             <tr class="sm:rounded-lg bg-slate-800">
 
@@ -26,13 +26,16 @@
                 <th scope="col" class="px-6 py-4">
                     {{__('الشركه')}}
                 </th>
+                <th scope="col" class="px-6 py-4">
+                    {{__('تقديم')}}
+                </th>
 
             </tr>
         </thead>
         <tbody>
             @foreach ($jobs as $job)
 
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr  class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
                     <th scope="row" class="flex items-center px-6 py-2 text-gray-900 whitespace-nowrap dark:text-white">
 
@@ -59,6 +62,12 @@
 
                           {{$job->company->name}}
                     </td>
+                    <td class="whitespace-nowrap px-6 py-2">
+                        <a  href="{{route('show-job',['id'=>$job->id])}}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                            تقديم
+                        </a>
+                    </td>
+
 
                 </tr>
             @endforeach

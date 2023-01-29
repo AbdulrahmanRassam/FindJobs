@@ -6,6 +6,7 @@ use App\Models\Job;
 use App\Models\Company;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -29,9 +30,17 @@ class JobController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-     public function create()
+     public function user_job($id)
      {
-         //
+        Auth::user()->jobs()->attach($id);
+
+        return back();
+     }
+     public function cancel_user_job($id)
+     {
+        Auth::user()->jobs()->detach($id);
+
+        return back();
      }
 
     /**
@@ -68,9 +77,11 @@ class JobController extends Controller
      * @param  \App\Models\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show( $id)
     {
-        //
+        $job=Job::where('id',$id)->first();
+
+        return view('jobs.show-job',['job'=>$job]);
     }
 
     /**
