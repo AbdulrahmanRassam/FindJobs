@@ -6,16 +6,16 @@
             <tr>
 
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    اسم المستخدم
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Position
+                    الايميل
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Status
+                    تاريخ التسجيل
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    تعديل
                 </th>
             </tr>
         </thead>

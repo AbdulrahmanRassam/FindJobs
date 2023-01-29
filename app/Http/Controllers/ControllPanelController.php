@@ -16,8 +16,10 @@ class ControllPanelController extends Controller
         if (Auth::id()==1) {
             $categories=Category::all();
             $users=User::all();
+            $jobs=Job::latest()->paginate(10);
+
             # code...
-            return view('controllPanel.index')->with('categories',$categories)->with('users',$users);
+            return view('controllPanel.index')->with('jobs',$jobs)->with('categories',$categories)->with('users',$users);
         }else{
 
             return redirect()->back()->with('fail','You are not Admin');
@@ -27,10 +29,8 @@ class ControllPanelController extends Controller
     }
     public function dashboard()
     {
-
-
             $categories=Category::all();
-            $jobs=Job::all();
+            $jobs=Job::latest()->paginate(10);
 
             return view('dashboard')->with('jobs',$jobs)->with('categories',$categories);
 

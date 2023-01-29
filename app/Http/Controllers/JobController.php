@@ -17,6 +17,8 @@ class JobController extends Controller
     public function index(Company $company)
     {
         $categories=Category::all();
+        $jobs=Job::latest()->paginate(10);
+
         return view('jobs.index')->with('company',$company)->with('categories',$categories);
     }
 

@@ -6,16 +6,16 @@
             <tr>
 
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    اسم القسم
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Father
+                    الاب
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Status
+                    الحاله
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
+                    تعديل
                 </th>
             </tr>
         </thead>

@@ -26,8 +26,8 @@ return new class extends Migration
             $table->timestamps();
         });
         \App\Models\User::create( [
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'name' => 'Raghad',
+            'email' => 'raghad@admin.com',
             'password' =>Hash::make('admin123'),
 
         ]);

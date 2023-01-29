@@ -1,7 +1,7 @@
 
 
         <h2 class="font-semibold text-xl bg-white py-12 px-16 text-gray-800 leading-tight">
-            {{ __('Companies') }}
+            {{ __('الشركات') }}
         </h2>
 
 

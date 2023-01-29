@@ -3,20 +3,18 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-
     </x-slot>
 
 
     <div class="py-12">
 
-
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex ">
-                <h3 class=" text-gray-900 text-xl px-6">اقسام الوظائف</h3>
+            <div class="flex">
+                <h3> القسم</h3>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-slate-200 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{__('الفئات')}}</div>
+                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                            <div>{{ $filter }}</div>
 
                             <div class="ml-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -34,6 +32,9 @@
                             </x-dropdown-link>
                         @endforeach
 
+                            <x-dropdown-link :href="route('dashboard')">
+                                {{__('All') }}
+                            </x-dropdown-link>
                     </x-slot>
                 </x-dropdown>
             </div>

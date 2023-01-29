@@ -4,11 +4,11 @@
             <div class="flex-1 w-48">
                 <header>
                     <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Create-jobs') }}
+                        {{ __('اضافه قسم جديد') }}
                     </h2>
 
                     <p class="mt-1 text-sm text-gray-600">
-                        {{ __("Create-jobs") }}
+                        {{ __("اضافه قسم جديد") }}
                     </p>
                 </header>
             </div>
@@ -20,13 +20,13 @@
                         @method('POST')
 
                         <div>
-                            <x-input-label for="name" :value="__('Name')" />
+                            <x-input-label for="name" :value="__('اسم القسم')" />
                             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"  required autofocus autocomplete="name" />
                             <x-input-error class="mt-2" :messages="$errors->get('name')" />
                         </div>
 
                         <div>
-                                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
+                                    <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">الاقسام </label>
                                     <select name="father" class="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         @foreach ($categories as $category)
                                             <option value="{{$category->id}}">{{$category->name}}</option>
@@ -39,7 +39,7 @@
 
 
                         <div class="flex items-center gap-4">
-                            <x-primary-button>{{ __('Save') }}</x-primary-button>
+                            <x-primary-button>{{ __('جفظ') }}</x-primary-button>
 
                             @if (session('status') === 'Saved Successfully')
                                 <p
@@ -48,7 +48,7 @@
                                     x-transition
                                     x-init="setTimeout(() => show = false, 2000)"
                                     class="text-sm text-gray-600"
-                                >{{ __('Saved Successfully.') }}</p>
+                                >{{ __('تم اضافه قسم بنجاح') }}</p>
                             @endif
                         </div>
                     </form>
